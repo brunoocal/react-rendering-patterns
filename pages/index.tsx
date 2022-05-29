@@ -3,6 +3,7 @@ import {Header} from '@components/Header';
 import {Categories} from '@components/Categories';
 import {Tiles} from '@components/Tiles';
 import {ClothingFavorites} from '@components/ClothingFavorites';
+import {WorkspaceCollections} from '@components/WorkspaceCollections';
 const IndexPage = () => (
   <>
     <main className="w-full flex flex-col">
@@ -22,6 +23,7 @@ const IndexPage = () => (
       />
       <ClothingFavorites />
       <Tiles />
+      <WorkspaceCollections />
     </main>
   </>
 );
