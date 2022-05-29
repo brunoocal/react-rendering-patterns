@@ -16,6 +16,15 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta property="og:image" content="/og-image.png" />
+
+          <meta property="og:title" content="React Rendering Patterns" />
+
+          <meta
+            property="og:description"
+            content="A full description of the page."
+          />
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
