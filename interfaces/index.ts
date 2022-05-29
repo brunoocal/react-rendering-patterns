@@ -5,6 +5,24 @@
 // import { User } from 'path/to/interfaces';
 
 export type User = {
-  id: number
-  name: string
-}
+  id: number;
+  name: string;
+};
+
+export type DecorativeImageProps = {
+  src: string;
+  className?: string;
+  alt?: string;
+};
+
+export type TilesProps = {
+  src?: string;
+  title?: string;
+  desc?: string;
+  button?: {
+    text: string;
+    link: string;
+  };
+  bgColor?: string;
+  bgOpacity?: string;
+};

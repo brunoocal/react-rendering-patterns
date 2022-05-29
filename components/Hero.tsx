@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import * as React from 'react';
+import {DecorativeImage} from './DecorativeImage';
 
 export const Hero = () => {
   return (
@@ -28,59 +29,21 @@ export const Hero = () => {
                 <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                   <div className="flex items-center space-x-6 lg:space-x-8">
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      <DecorativeImage
+                        src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg"
+                        className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100"
+                      />
+
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" />
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" />
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" />
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" />
                     </div>
                     <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
-                      <div className="w-44 h-64 rounded-lg overflow-hidden">
-                        <img
-                          src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg"
-                          alt=""
-                          className="w-full h-full object-center object-cover"
-                        />
-                      </div>
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" />
+                      <DecorativeImage src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" />
                     </div>
                   </div>
                 </div>
