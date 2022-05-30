@@ -8,7 +8,7 @@ const List = Array(3)
   .fill(0)
   .map((_, i) => ({
     src: `/favorite-${i + 1}.jpg`,
-    price: Math.random() > 0.5 ? 39.99 : 16.99,
+    price: priceFn(i == 2 ? 39.99 : 16.99, 'UYU'),
     name: `${i == 0 ? 'Black Basic' : ''}${i == 1 ? 'Green Tea Basic' : ''}${
       i == 2 ? 'Mandaria Basic' : ''
     } Tee`,
@@ -42,7 +42,7 @@ export const ClothingFavorites = () => {
                     {name}
                   </span>
                   <span className="text-sm text-indigo-600 font-semibold">
-                    {Currencies.UYU} {priceFn(price, 'UYU')}
+                    {Currencies.UYU} {price}
                   </span>
                 </div>
               </a>

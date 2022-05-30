@@ -4,10 +4,11 @@ import {Categories} from '@components/Categories';
 import {Tiles} from '@components/Tiles';
 import {ClothingFavorites} from '@components/ClothingFavorites';
 import {WorkspaceCollections} from '@components/WorkspaceCollections';
-const IndexPage = () => (
+import {WorkspaceFavorites} from '@components/WorkspaceFavorites';
+const IndexPage = ({header}) => (
   <>
     <main className="w-full flex flex-col">
-      <Header />
+      {header}
       <Hero />
       <Categories />
       <Tiles
@@ -24,6 +25,7 @@ const IndexPage = () => (
       <ClothingFavorites />
       <Tiles />
       <WorkspaceCollections />
+      <WorkspaceFavorites />
     </main>
   </>
 );

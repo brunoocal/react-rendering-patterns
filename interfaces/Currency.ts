@@ -45,9 +45,19 @@ export enum CurrencyValueRelativeToUSD {
 }
 
 export const price = (
-  usdQuantity: number,
+  usdQuantity: number | string,
   otherCurrency: Exclude<keyof typeof Currencies, 'USD'>
 ) => {
+  if (typeof usdQuantity === 'string') {
+    try {
+      usdQuantity = parseFloat(usdQuantity);
+    } catch (e) {
+      usdQuantity = 0;
+    }
+  }
+
+  if (usdQuantity === 0) return 0;
+
   const value = usdQuantity / CurrencyValueRelativeToUSD[otherCurrency];
 
   return value.toFixed(2);

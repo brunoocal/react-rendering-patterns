@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import {ArrowRightIcon} from '@heroicons/react/solid';
 import {DecorativeImage} from './DecorativeImage';
-import {Category, Categories as ECategories} from '@interfaces/Category';
+import {Category, Categories as ECategories} from '@interfaces/Products';
 
 const parseLading = (s: string): string => {
   //replace white space
@@ -41,9 +41,9 @@ export const Categories = () => {
           </span>
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 grid-rows-2 w-full">
-          {List.map(({landing, name, big}) => {
+          {List.map(({landing, name, big}, i) => {
             return (
-              <Link passHref href={`/category/${name}`}>
+              <Link passHref key={i} href={`/category/${name}`}>
                 <a
                   className={`${
                     big

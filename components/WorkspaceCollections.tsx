@@ -26,7 +26,7 @@ export const WorkspaceCollections = () => {
       <section className="flex justify-center items-center flex-col pb-20 sm:pb-40 lg:pb-48 relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="sm:flex-row flex-col flex justify-between items-center h-8 w-full mb-2">
           <h2 className="text-xl md:text-3xl text-black font-bold">
-            Workspace & Focus collections
+            Home & Focus collections
           </h2>
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 grid-rows-1 w-full">
