@@ -1,6 +1,7 @@
 import React from 'react';
 import {useRouter} from 'next/router';
 import Link from 'next/link';
+import {decodeProduct} from '@interfaces/Products';
 import {ChevronRightIcon} from '@heroicons/react/solid';
 
 const capitalize = (s: string): string => {
@@ -51,7 +52,7 @@ export const Breadcrumb = () => {
           });
         }
 
-        return {href, text: decodeURI(subpath)};
+        return {href, text: decodeURI(decodeProduct(subpath))};
       });
 
       return [{href: '/', text: 'Home'}, ...crumblist];

@@ -3,6 +3,7 @@ import {
   Categories,
   ClothingAPIQuery,
   ProductAPIQuery,
+  ProductPageURL,
   WorkspaceAPIQuery,
 } from '@interfaces/Products';
 import * as Products from '@utils/ProductsData';
@@ -30,10 +31,27 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
         case Categories.NewArrivals:
           const clothQuery: ClothingAPIQuery = json;
           //for later SSR
+          const AllProducts = [
+            ...Products.MenProducts,
+            ...Products.WomenProducts,
+          ];
 
-          res.status(200).json({
+          if (clothQuery.name) {
+            console.log(clothQuery.name);
+            const findedProduct = AllProducts.find(
+              product =>
+                ProductPageURL(product) ===
+                `/category/${clothQuery.category}/product/${clothQuery.name}`
+            );
+
+            return res
+              .status(200)
+              .json({status: 'success', product: findedProduct});
+          }
+
+          return res.status(200).json({
             status: 'success',
-            products: [...Products.MenProducts, ...Products.WomenProducts],
+            products: AllProducts,
           });
 
           break;

@@ -22,12 +22,16 @@ export const MenProducts: ClothingProduct[] = [
       {name: 'Sienna', hex: '#af8b48'},
       {name: 'Deep Forest', hex: '#2c4c48'},
     ],
+    kit: {
+      is: true,
+      description: '8-tshirt',
+    },
     desc: 'undefined2',
     price: '232.00',
   },
   {
-    name: "Men's Essential Tee ",
-    images: ['/products/Men-1-0.png', ,],
+    name: "Men's Essential Tee",
+    images: ['/products/Men-1-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -44,14 +48,17 @@ export const MenProducts: ClothingProduct[] = [
         name: 'gray',
         hex: '#9899a0',
       },
-      ,
     ],
+    kit: {
+      is: true,
+      description: '3-tshirt',
+    },
     desc: 'undefined2',
     price: '87.00',
   },
   {
-    name: "Men's Essential Tee ",
-    images: ['/products/Men-2-0.png', ,],
+    name: "Men's Essential Tee",
+    images: ['/products/Men-2-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -60,8 +67,8 @@ export const MenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: 'Voyage ',
-    images: ['/products/Men-3-0.png', ,],
+    name: 'Voyage',
+    images: ['/products/Men-3-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -70,8 +77,8 @@ export const MenProducts: ClothingProduct[] = [
     price: '32.00',
   },
   {
-    name: "Men's Essential Tee ",
-    images: ['/products/Men-4-0.png', ,],
+    name: "Men's Essential Tee",
+    images: ['/products/Men-4-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -85,8 +92,8 @@ export const MenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: 'More Than Meets the Eye ',
-    images: ['/products/Men-5-0.png', ,],
+    name: 'More Than Meets the Eye',
+    images: ['/products/Men-5-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -100,7 +107,7 @@ export const MenProducts: ClothingProduct[] = [
     price: '32.00',
   },
   {
-    name: "Men's Essential Tee ",
+    name: "Men's Essential Tee",
     images: ['/products/Men-6-0.png'],
     category: Categories.NewArrivals,
     for: 'Men',
@@ -113,8 +120,12 @@ export const MenProducts: ClothingProduct[] = [
 
 export const WomenProducts: ClothingProduct[] = [
   {
-    name: "Women's Essential Tee ",
-    images: ['/products/Women-0-0.png', '/products/Women-0-1.png'],
+    name: "Women's Essential Tee",
+    images: [
+      '/products/Women-0-0.png',
+      '/products/Women-0-1.png',
+      '/products/Women-1-0.png',
+    ],
     category: Categories.NewArrivals,
     for: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -123,13 +134,33 @@ export const WomenProducts: ClothingProduct[] = [
         name: 'black',
         hex: '#000',
       },
+      {
+        name: 'Brick',
+        hex: '#924741',
+      },
+      {
+        name: 'Willow',
+        hex: '#908651',
+      },
+      {
+        name: 'Bone',
+        hex: '#f1ece5',
+      },
+      {
+        name: 'Sienna',
+        hex: '#af8b48',
+      },
     ],
+    kit: {
+      is: true,
+      description: '5-tshirt',
+    },
     desc: 'undefined2',
     price: '54.00',
   },
   {
-    name: "Women's Essential Tee ",
-    images: ['/products/Women-1-0.png', '/products/Women-1-1.png'],
+    name: "Women's Essential Tee",
+    images: ['/products/Women-1-1.png', '/products/Women-1-0.png'],
     category: Categories.NewArrivals,
     for: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -143,7 +174,7 @@ export const WomenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: "Women's Essential Tee ",
+    name: "Women's Essential Tee",
     images: ['/products/Women-2-0.png', '/products/Women-2-1.png'],
     category: Categories.NewArrivals,
     for: 'Women',
@@ -158,8 +189,8 @@ export const WomenProducts: ClothingProduct[] = [
     price: '54.00',
   },
   {
-    name: "Women's Essential Tee ",
-    images: ['/products/Women-3-0.png', '/products/Women-3-1.png'],
+    name: "Women's Essential Tee",
+    images: ['/products/Women-3-1.png', '/products/Women-3-0.png'],
     category: Categories.NewArrivals,
     for: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -173,7 +204,7 @@ export const WomenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: "Women's Essential Tee ",
+    name: "Women's Essential Tee",
     images: ['/products/Women-4-0.png', '/products/Women-4-1.png'],
     category: Categories.NewArrivals,
     for: 'Women',
@@ -188,8 +219,8 @@ export const WomenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: "Women's Essential Tee ",
-    images: ['/products/Women-5-0.png', '/products/Women-5-1.png'],
+    name: "Women's Essential Tee",
+    images: ['/products/Women-5-1.png', '/products/Women-5-0.png'],
     category: Categories.NewArrivals,
     for: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
@@ -203,7 +234,7 @@ export const WomenProducts: ClothingProduct[] = [
     price: '29.00',
   },
   {
-    name: "Women's Essential Tee ",
+    name: "Women's Essential Tee",
     images: ['/products/Women-6-0.png', '/products/Women-6-1.png'],
     category: Categories.NewArrivals,
     for: 'Women',
@@ -241,7 +272,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '137.00',
   },
   {
-    name: 'Analog Starter Kit ',
+    name: 'Analog Starter Kit',
     images: ['/products/Work-2-0.png'],
     category: Categories.Workspace,
     colors: [
@@ -263,7 +294,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '64.00',
   },
   {
-    name: 'Craft Design Technology Stapler ',
+    name: 'Craft Design Technology Stapler',
     images: ['/products/Work-4-0.png', '/products/Work-4-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'White', hex: '#fff'}],
@@ -272,7 +303,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '25.00',
   },
   {
-    name: 'Craft Design Technology Stapler ',
+    name: 'Craft Design Technology Stapler',
     images: ['/products/Work-5-0.png', '/products/Work-5-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -290,7 +321,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '39.00',
   },
   {
-    name: 'Braun Wall Clock ',
+    name: 'Braun Wall Clock',
     images: ['/products/Work-7-0.png', '/products/Work-7-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -299,7 +330,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '54.00',
   },
   {
-    name: 'Braun Wall Clock ',
+    name: 'Braun Wall Clock',
     images: ['/products/Work-8-0.png', '/products/Work-8-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'White', hex: '#fff'}],
@@ -308,7 +339,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '54.00',
   },
   {
-    name: 'Analog Wood Card Holder ',
+    name: 'Analog Wood Card Holder',
     images: ['/products/Work-9-0.png', '/products/Work-9-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Walnut', hex: '#f3dab2'}],
@@ -318,7 +349,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
   },
 
   {
-    name: 'Analog Travel Case ',
+    name: 'Analog Travel Case',
     images: ['/products/Work-10-0.png'],
     category: Categories.Workspace,
     colors: [{name: 'Slate', hex: '#6b6a58'}],
@@ -327,7 +358,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '34.00',
   },
   {
-    name: 'Analog Wood Card Holder ',
+    name: 'Analog Wood Card Holder',
     images: ['/products/Work-11-0.png'],
     category: Categories.Workspace,
     colors: [{name: 'Maple', hex: '#d2b8a5'}],
@@ -336,7 +367,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '69.00',
   },
   {
-    name: 'Discbound Heirloom Journal ',
+    name: 'Discbound Heirloom Journal',
     images: ['/products/Work-12-0.png', '/products/Work-12-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -345,7 +376,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '120.00',
   },
   {
-    name: 'Discbound Heirloom Journal ',
+    name: 'Discbound Heirloom Journal',
     images: ['/products/Work-13-0.png', '/products/Work-13-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Natural', hex: '#ecc19e'}],
@@ -354,7 +385,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '120.00',
   },
   {
-    name: 'HMM Ballpoint Pen ',
+    name: 'HMM Ballpoint Pen',
     images: ['/products/Work-14-0.png', '/products/Work-14-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -363,7 +394,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '35.00',
   },
   {
-    name: 'Discbound Heirloom Journal Bundle ',
+    name: 'Discbound Heirloom Journal Bundle',
     images: ['/products/Work-15-0.png', '/products/Work-15-1.png'],
     category: Categories.Workspace,
     colors: [
@@ -377,7 +408,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
   },
 
   {
-    name: 'Premium Leather Mousepad XL ',
+    name: 'Premium Leather Mousepad XL',
     images: ['/products/Work-16-0.png', '/products/Work-16-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -386,7 +417,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '52.00',
   },
   {
-    name: 'Premium Leather Mousepad ',
+    name: 'Premium Leather Mousepad',
     images: ['/products/Work-17-0.png', '/products/Work-17-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -396,7 +427,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
   },
 
   {
-    name: 'Discbound Heirloom Journal ',
+    name: 'Discbound Heirloom Journal',
     images: ['/products/Work-18-0.png', '/products/Work-18-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Brown', hex: '#884941'}],
@@ -405,7 +436,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '120.00',
   },
   {
-    name: 'Discbound Heirloom Journal Bundle ',
+    name: 'Discbound Heirloom Journal Bundle',
     images: ['/products/Work-19-0.png', '/products/Work-19-1.png'],
     category: Categories.Workspace,
     colors: [
@@ -418,7 +449,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     price: '155.00',
   },
   {
-    name: 'HMM Pencil ',
+    name: 'HMM Pencil',
     images: ['/products/Work-20-0.png', '/products/Work-20-1.png'],
     category: Categories.Workspace,
     colors: [
@@ -436,7 +467,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
 
 export const Accesories: Product[] = [
   {
-    name: 'Kinto Travel Tumbler ',
+    name: 'Kinto Travel Tumbler',
     images: ['/products/Item-0-0.png'],
     category: Categories.Workspace,
     colors: [{name: 'Black', hex: '#000'}],
@@ -444,7 +475,7 @@ export const Accesories: Product[] = [
     price: '35.00',
   },
   {
-    name: 'Kinto Day Off Tumbler ',
+    name: 'Kinto Day Off Tumbler',
     images: ['/products/Item-1-0.png', '/products/Item-1-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Khaki', hex: '#5e5f49'}],
@@ -452,7 +483,7 @@ export const Accesories: Product[] = [
     price: '38.00',
   },
   {
-    name: 'Hasami Porcelain Mug ',
+    name: 'Hasami Porcelain Mug',
     images: ['/products/Item-2-0.png', '/products/Item-2-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Matte Black', hex: '#353132'}],
@@ -460,7 +491,7 @@ export const Accesories: Product[] = [
     price: '30.00',
   },
   {
-    name: 'Hasami Porcelain Mug ',
+    name: 'Hasami Porcelain Mug',
     images: ['/products/Item-3-0.png', '/products/Item-3-1.png'],
     category: Categories.Workspace,
     colors: [{name: 'Natural', hex: '#b8a086'}],

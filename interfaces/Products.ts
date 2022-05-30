@@ -42,7 +42,6 @@ export interface ClothingProduct extends Product {
   kit?: {
     is: boolean;
     description: string;
-    colors: Color[];
   };
 }
 
@@ -68,3 +67,49 @@ export interface ClothingAPIQuery extends ProductAPIQuery {
 export interface WorkspaceAPIQuery extends ProductAPIQuery {
   material?: Materials[] | Materials;
 }
+
+export const ProductPageURL = (
+  product: Product | ClothingProduct | WorkspaceProduct
+) => {
+  const name = product.name;
+  const productName = name.split(' ').join('-');
+  const categoryName: Categories = product.category;
+
+  if (categoryName === Categories.NewArrivals) {
+    if ('kit' in product) {
+      const kitDesc = (product as ClothingProduct).kit.description;
+      const kitName = kitDesc.split(' ').join('-');
+      return `/category/${categoryName}/product/${productName}-kit-${kitName}`;
+    }
+
+    if (product.colors || product.colors.length === 1) {
+      return `/category/${categoryName}/product/${productName}-${product.colors[0].name}`;
+    }
+  }
+
+  return `/products/${productName}`;
+};
+
+export const decodeProduct = (text: string | null): string => {
+  if (text === null) {
+    return '';
+  }
+
+  if (typeof text === 'string') {
+    const productName = text?.split('-');
+
+    if (productName.length >= 1) {
+      if (productName.find(word => word === 'kit')) {
+        const index = productName.findIndex(word => word === 'kit');
+        const slice = productName.slice(0, index).join(' ');
+        return slice + ' Kit';
+      }
+
+      return productName.join(' ');
+    }
+
+    return text;
+  }
+
+  return text;
+};

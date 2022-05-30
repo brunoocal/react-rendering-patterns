@@ -1,8 +1,9 @@
 import React, {useState, useEffect, useRef, startTransition} from 'react';
 import {useRouter} from 'next/router';
 import {Breadcrumb} from '@components/Breadcrumb';
-import {Product} from '@interfaces/Products';
+import {Product, ProductPageURL} from '@interfaces/Products';
 import Image from 'next/image';
+import Link from 'next/link';
 import {Currencies, price} from '@interfaces/Currency';
 import {Color, Sizes} from '@interfaces/Products';
 const capitalize = (s: string) => {
@@ -134,32 +135,34 @@ export default function CategoryPage({header}) {
             {products.map(product => {
               return (
                 <>
-                  <article className="w-full md:w-1/2 lg:w-1/3 h-auto p-4">
-                    <section className="flex justify-center items-center flex-col rounded-lg border border-slate-200">
-                      <figure className="w-full aspect-[25/32] relative">
-                        <Image src={product.images[0]} layout="fill" />
-                      </figure>
-                      <div className="flex justify-start items-start flex-col w-full p-4 px-6">
-                        <h2 className="text-black text-base font-medium mb-2">
-                          {product.name}
-                        </h2>
-                        <p className="text-sm font-normal text-gray-500 mb-6">
-                          Look like a visionary CEO and wear the same black
-                          t-shirt every day.
-                        </p>
-                        <div className="flex flex-1 justify-center items-start flex-col">
-                          <span className="text-sm font-normal text-gray-500 italic">
-                            {product.colors.length >= 2
-                              ? `${product.colors.length} colors`
-                              : `${capitalize(product.colors[0].name)}`}
-                          </span>
-                          <p className="text-black text-base font-medium">
-                            {Currencies.UYU} {price(product.price, 'UYU')}
+                  <Link passHref href={ProductPageURL(product)}>
+                    <article className="w-full md:w-1/2 lg:w-1/3 h-auto p-4 cursor-pointer">
+                      <section className="flex justify-center items-center flex-col rounded-lg border border-slate-200">
+                        <figure className="w-full aspect-[25/32] relative">
+                          <Image src={product.images[0]} layout="fill" />
+                        </figure>
+                        <div className="flex justify-start items-start flex-col w-full p-4 px-6">
+                          <h2 className="text-black text-base font-medium mb-2">
+                            {product.name}
+                          </h2>
+                          <p className="text-sm font-normal text-gray-500 mb-6">
+                            Look like a visionary CEO and wear the same black
+                            t-shirt every day.
                           </p>
+                          <div className="flex flex-1 justify-center items-start flex-col">
+                            <span className="text-sm font-normal text-gray-500 italic">
+                              {product.colors.length >= 2
+                                ? `${product.colors.length} colors`
+                                : `${capitalize(product.colors[0].name)}`}
+                            </span>
+                            <p className="text-black text-base font-medium">
+                              {Currencies.UYU} {price(product.price, 'UYU')}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </section>
-                  </article>
+                      </section>
+                    </article>
+                  </Link>
                 </>
               );
             })}
