@@ -10,12 +10,14 @@
     "@heroicons/react": "^1.0.6",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-transition-group": "^4.4.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-transition-group": "^4.4.4",
     "postcss-preset-env": "^7.6.0",
     "prettier": "^1.19.1",
     "prettier-airbnb-config": "^1.0.0",

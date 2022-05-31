@@ -3,7 +3,8 @@ import Link from 'next/link';
 import {ArrowRightIcon} from '@heroicons/react/solid';
 import {DecorativeImage} from './DecorativeImage';
 import {Currencies, price as priceFn} from '@interfaces/Currency';
-
+import {Categories} from '@interfaces/Products';
+import {CurrencyContext} from '@utils/CurrencyContext';
 const capitalize = (s: string): string => {
   if (typeof s !== 'string') return '';
   return s
@@ -12,82 +13,16 @@ const capitalize = (s: string): string => {
     .join(' ');
 };
 
-const List = [
-  {
-    colors: [
-      {
-        name: 'black',
-        hex: '#000000',
-      },
-      {
-        name: 'gold',
-        hex: '#e9d69d',
-      },
-      {
-        name: 'silver',
-        hex: '#c0c0c0',
-      },
-    ],
-    name: 'Machined Pen',
-    price: priceFn(20, 'UYU'),
-    src: '/pencil.png',
-  },
-  {
-    colors: [
-      {
-        name: 'matte black',
-        hex: '#353132',
-      },
-      {
-        name: 'porcenlain',
-        hex: '#b8a086',
-      },
-    ],
-    name: 'Earthen Mug',
-    price: priceFn(18, 'UYU'),
-    src: '/mug.png',
-  },
-  {
-    colors: [
-      {
-        name: 'natural',
-        hex: '#ecc19e',
-      },
-      {
-        name: 'black',
-        hex: '#000000',
-      },
-      {
-        name: 'brown',
-        hex: '#884941',
-      },
-    ],
-    name: 'Journal Bundle',
-    price: priceFn(90, 'UYU'),
-    src: '/journal-bundle.png',
-  },
-  {
-    colors: [
-      {
-        name: 'black',
-        hex: '#000000',
-      },
-      {
-        name: 'natural',
-        hex: '#ecc19e',
-      },
-      {
-        name: 'brown',
-        hex: '#884941',
-      },
-    ],
-    name: 'Journal',
-    price: priceFn(30, 'UYU'),
-    src: '/journal.png',
-  },
-];
-
 export const WorkspaceFavorites = () => {
+  const [List, setList] = React.useState([]);
+  const [currency] = React.useContext(CurrencyContext);
+
+  React.useEffect(() => {
+    fetch('/api/products/favorites?category=' + Categories.Workspace)
+      .then(res => res.json())
+      .then(data => setList(data.favorites));
+  }, []);
+
   return (
     <>
       <section className="flex justify-center items-center flex-col pb-20 sm:pb-40 lg:pb-48 relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,7 +53,7 @@ export const WorkspaceFavorites = () => {
                     {name}
                   </span>
                   <span className="text-sm text-slate-800 font-medium">
-                    {Currencies.UYU} {price}
+                    {currency} {priceFn(price, currency)}
                   </span>
                   <div className="mt-4 flex justify-center items-center">
                     {colors.map(({name, hex}) => (

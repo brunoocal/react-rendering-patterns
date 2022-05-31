@@ -58,7 +58,19 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
         case Categories.Workspace:
           const workspaceQuery: WorkspaceAPIQuery = json;
 
-          res.status(200).json({
+          if (workspaceQuery.name) {
+            const findedProduct = Products.WorkspaceProducts.find(
+              product =>
+                ProductPageURL(product) ===
+                `/category/${workspaceQuery.category}/product/${workspaceQuery.name}`
+            );
+
+            return res
+              .status(200)
+              .json({status: 'success', product: findedProduct});
+          }
+
+          return res.status(200).json({
             status: 'success',
             products: Products.WorkspaceProducts,
           });

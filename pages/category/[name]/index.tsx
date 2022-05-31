@@ -1,4 +1,10 @@
-import React, {useState, useEffect, useRef, startTransition} from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  startTransition,
+  useContext,
+} from 'react';
 import {useRouter} from 'next/router';
 import {Breadcrumb} from '@components/Breadcrumb';
 import {Product, ProductPageURL} from '@interfaces/Products';
@@ -6,6 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {Currencies, price} from '@interfaces/Currency';
 import {Color, Sizes} from '@interfaces/Products';
+import {CurrencyContext} from '@utils/CurrencyContext';
 const capitalize = (s: string) => {
   if (typeof s !== 'string') return '';
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -29,7 +36,7 @@ export default function CategoryPage({header}) {
   const {name} = router.query;
   const [products, setProducts] = useState<Product[]>([]);
   const filtersRef = useRef<HTMLDivElement>(null);
-  // const [offset, setOffset] = useState(0);
+  const [currency] = useContext(CurrencyContext);
 
   useEffect(() => {
     if (name) {
@@ -156,7 +163,7 @@ export default function CategoryPage({header}) {
                                 : `${capitalize(product.colors[0].name)}`}
                             </span>
                             <p className="text-black text-base font-medium">
-                              {Currencies.UYU} {price(product.price, 'UYU')}
+                              {currency} {price(product.price, currency)}
                             </p>
                           </div>
                         </div>

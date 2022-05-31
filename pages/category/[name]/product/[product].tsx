@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef, useContext} from 'react';
 import {useRouter} from 'next/router';
 import {Breadcrumb} from '@components/Breadcrumb';
 import {ClothingProduct, Product, WorkspaceProduct} from '@interfaces/Products';
@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {Currencies, price} from '@interfaces/Currency';
 import {Sizes} from '@interfaces/Products';
+import {CurrencyContext} from '@utils/CurrencyContext';
 
 const capitalize = (s: string) => {
   if (typeof s !== 'string') return '';
@@ -18,6 +19,7 @@ export default function ProductPage({header}) {
   const [product, setProduct] = useState<
     Product | ClothingProduct | WorkspaceProduct
   >(null);
+  const [currency] = useContext(CurrencyContext);
 
   useEffect(() => {
     if (name) {
@@ -52,7 +54,7 @@ export default function ProductPage({header}) {
               </h1>
               <div className="mt-3 flex justify-between items-center">
                 <h2 className="text-black font-semibold text-2xl ">
-                  {Currencies.UYU} {price(product.price, 'UYU')}
+                  {currency} {price(product.price, currency)}
                 </h2>
                 <p className="text-gray-500 no-underline hover:underline italic text-sm">
                   Change Currency

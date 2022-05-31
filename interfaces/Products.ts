@@ -87,7 +87,7 @@ export const ProductPageURL = (
     }
   }
 
-  return `/products/${productName}`;
+  return `/category/${categoryName}/product/${productName}`;
 };
 
 export const decodeProduct = (text: string | null): string => {
