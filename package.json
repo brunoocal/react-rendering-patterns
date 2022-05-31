@@ -11,7 +11,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-transition-group": "^4.4.2"
+    "react-transition-group": "^4.4.2",
+    "sharp": "^0.30.6"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

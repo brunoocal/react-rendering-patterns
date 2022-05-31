@@ -7,12 +7,15 @@ import React, {
 } from 'react';
 import {useRouter} from 'next/router';
 import {Breadcrumb} from '@components/Breadcrumb';
-import {Product, ProductPageURL} from '@interfaces/Products';
+import {Product, ProductPageURL, Categories} from '@interfaces/Products';
 import Image from 'next/image';
 import Link from 'next/link';
 import {Currencies, price} from '@interfaces/Currency';
 import {Color, Sizes} from '@interfaces/Products';
 import {CurrencyContext} from '@utils/CurrencyContext';
+import * as ProductData from '@utils/ProductsData';
+import {GetStaticPaths, GetStaticProps, InferGetStaticPropsType} from 'next';
+
 const capitalize = (s: string) => {
   if (typeof s !== 'string') return '';
   return s.charAt(0).toUpperCase() + s.slice(1);
@@ -31,20 +34,55 @@ const colors: Color[] = [
 
 const sizes: Sizes[] = ['XS', 'S', 'M', 'L', 'XL', '2XL'];
 
-export default function CategoryPage({header}) {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [
+      {
+        params: {
+          name: Categories.NewArrivals,
+        },
+      },
+      {
+        params: {
+          name: Categories.Workspace,
+        },
+      },
+    ],
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async context => {
+  const category = context.params.name;
+
+  //I'm simulating an DB call, this code should be replaced by a real DB call
+  //And since this is a static page, this code isn't shipped to production
+  //Maybe you are asking, why don't call our built-in Next API here?
+  //It's because that API is not available in the build step.
+  //So, this will work fine for this example, but it's not a good practice and should be avoided.
+
+  const products: Product[] =
+    category === Categories.NewArrivals
+      ? [...ProductData.MenProducts, ...ProductData.WomenProducts]
+      : category === Categories.Workspace
+      ? ProductData.WorkspaceProducts
+      : ProductData.Accesories;
+
+  return {
+    props: {
+      products,
+    },
+  };
+};
+
+export default function CategoryPage({
+  header,
+  products,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const {name} = router.query;
-  const [products, setProducts] = useState<Product[]>([]);
   const filtersRef = useRef<HTMLDivElement>(null);
   const [currency] = useContext(CurrencyContext);
-
-  useEffect(() => {
-    if (name) {
-      fetch(`/api/products?category=${name}`)
-        .then(res => res.json())
-        .then(data => setProducts(data.products));
-    }
-  }, [name]);
 
   return (
     <>

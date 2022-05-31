@@ -13,15 +13,8 @@ const capitalize = (s: string): string => {
     .join(' ');
 };
 
-export const WorkspaceFavorites = () => {
-  const [List, setList] = React.useState([]);
+export const WorkspaceFavorites = ({list}) => {
   const [currency] = React.useContext(CurrencyContext);
-
-  React.useEffect(() => {
-    fetch('/api/products/favorites?category=' + Categories.Workspace)
-      .then(res => res.json())
-      .then(data => setList(data.favorites));
-  }, []);
 
   return (
     <>
@@ -35,8 +28,8 @@ export const WorkspaceFavorites = () => {
           </span>
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 grid-rows-1 w-full">
-          {List.map(({colors, name, price, src}, i) => (
-            <Link href="/">
+          {list.map(({colors, name, price, src}, i: number) => (
+            <Link href="/" key={name}>
               <a
                 className={`${(i == 1 || i == 2) &&
                   'hidden sm:flex'} flex mt-6 lg:mt-0 flex-col justify-center items-center w-full h-full relative z-10`}

@@ -4,17 +4,9 @@ import {ArrowRightIcon} from '@heroicons/react/solid';
 import {DecorativeImage} from './DecorativeImage';
 import {price as priceFn} from '@interfaces/Currency';
 import {CurrencyContext} from '@utils/CurrencyContext';
-import {Categories} from '@interfaces/Products';
 
-export const ClothingFavorites = () => {
-  const [list, setList] = React.useState([]);
+export const ClothingFavorites = ({list}) => {
   const [currency] = React.useContext(CurrencyContext);
-
-  React.useEffect(() => {
-    fetch('/api/products/favorites?category=' + Categories.NewArrivals)
-      .then(res => res.json())
-      .then(data => setList(data.favorites));
-  }, []);
 
   return (
     <>
@@ -29,7 +21,7 @@ export const ClothingFavorites = () => {
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 grid-rows-1 w-full">
           {list &&
-            list.map(({src, price, name}, i) => (
+            list.map(({src, price, name}, i: number) => (
               <Link href="/" key={name}>
                 <a
                   className={`${i == 2 &&
