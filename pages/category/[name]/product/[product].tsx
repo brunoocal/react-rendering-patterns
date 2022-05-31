@@ -54,11 +54,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
     );
   });
 
-  console.log(paths);
-
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -80,26 +78,36 @@ export const getStaticProps: GetStaticProps = async context => {
     | Product
     | ClothingProduct
     | WorkspaceProduct = AllProducts.find(product => {
-    const con =
+    const item =
       ProductPageURL(product) ===
       `/category/${context.params.name}/product/${context.params.product}`;
 
-    console.log(con, context.params.product);
-    return con;
+    return item;
   });
+
+  //this date is only for showing the revalidate prop in action
+  const date = new Date();
 
   return {
     props: {
       product,
+      date: `${date.toString()}`,
     },
+    revalidate: 60 * 10,
+    //Revalidate every 10minutes. If you want to see this in action by yourself and not spend,
+    //10 minutes on my vercel deploy, you can clone this proyect and change it to whatever you like.
+    //npm run build -> npm run start -> enjoy
   };
 };
 
 export default function ProductPage({
   header,
   product,
+  date,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [currency] = useContext(CurrencyContext);
+
+  if (!product) return null;
 
   return (
     <>
@@ -125,7 +133,8 @@ export default function ProductPage({
                 {currency} {price(product.price, currency)}
               </h2>
               <p className="text-gray-500 no-underline hover:underline italic text-sm">
-                Change Currency
+                {/* This change is to show the revalidation of the pages using ISR */}
+                {date}
               </p>
             </div>
             <div className="w-full h-1 my-4 border-t border-gray-300" />

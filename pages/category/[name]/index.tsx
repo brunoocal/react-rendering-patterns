@@ -48,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         },
       },
     ],
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -83,6 +83,8 @@ export default function CategoryPage({
   const {name} = router.query;
   const filtersRef = useRef<HTMLDivElement>(null);
   const [currency] = useContext(CurrencyContext);
+
+  if (!products) return null;
 
   return (
     <>
