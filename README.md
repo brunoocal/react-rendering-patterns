@@ -1,43 +1,55 @@
-# TypeScript Next.js example
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/75707587/172062381-73249b55-915f-403e-a776-8b029d217bec.png">
+  <img alt="" src="https://user-images.githubusercontent.com/75707587/172062380-0e80806c-14ad-4464-bee2-12b7ae88d6de.png">
+</picture>
+</div>
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+<br>
 
-## Deploy your own
+<div align='center'>
+<a href='https://github.com/brunoocal/react-rendering-patterns'>
+  
+<img src='https://img.shields.io/badge/style-V1.0.0-green?color=%23FDD835&label=VERSION&style=for-the-badge'>
+  
+</a>
+  
+<a href='https://github.com/brunoocal/react-rendering-patterns/blob/main/LICENSE'>
+  
+<img src='https://img.shields.io/github/license/brunoocal/react-rendering-patterns?style=for-the-badge'>
+  
+</a>
+  
+</div>
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-typescript)
+<br />
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+---
 
-## How to use it?
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-# or
-pnpm create next-app --example with-typescript with-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+<div align='center'>
+  
+### Quick Links
+  
+<a href='https://react-rendering-patterns-git-ssg-brunoocal.vercel.app/'>
+  
+<img src='https://img.shields.io/badge/SSG-orange?style=for-the-badge'>
+  
+</a>
+  
+<a href='https://react-rendering-patterns-mcfwtr71l-brunoocal.vercel.app/'>
+  
+<img src='https://img.shields.io/badge/ISR-blue?style=for-the-badge'>
+  
+</a>
+  
+<a href='https://react-rendering-patterns-git-ondemand-isr-brunoocal.vercel.app/'>
+  
+<img src='https://img.shields.io/badge/On Demand ISR-red?style=for-the-badge'>
+  
+</a>
+  
+<br />
+  
+<br />
+  
+</div>
