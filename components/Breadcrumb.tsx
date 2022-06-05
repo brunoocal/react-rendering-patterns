@@ -68,6 +68,28 @@ export const Breadcrumb = () => {
             <Crumb key={idx} {...crumb} last={idx === crumbs.length - 1} />
           );
         })}
+        {crumbs.length >= 4 && (
+          <button
+            className="px-3 h-10 bg-indigo-600 rounded-md text-sm text-white ml-4"
+            onClick={() => {
+              fetch('/api/revalidate', {
+                method: 'POST',
+                body: JSON.stringify({
+                  event: 'revalidate-date',
+                  url: router.asPath,
+                }),
+              })
+                .then(res => res.json())
+                .then(data => {
+                  if (data.revalidated) {
+                    window.location.reload();
+                  }
+                });
+            }}
+          >
+            Revalidate Page (On-demand ISR)
+          </button>
+        )}
       </section>
     </div>
   );

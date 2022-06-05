@@ -93,10 +93,7 @@ export const getStaticProps: GetStaticProps = async context => {
       product,
       date: `${date.toString()}`,
     },
-    revalidate: 60 * 10,
-    //Revalidate every 10minutes. If you want to see this in action by yourself and not spend,
-    //10 minutes on my vercel deploy, you can clone this proyect and change it to whatever you like.
-    //npm run build -> npm run start -> enjoy
+    //revalidate isn't necessary in this case.
   };
 };
 
@@ -132,7 +129,7 @@ export default function ProductPage({
               <h2 className="text-black font-semibold text-2xl ">
                 {currency} {price(product.price, currency)}
               </h2>
-              <p className="text-gray-500 no-underline hover:underline italic text-sm">
+              <p className="text-gray-500 w-52 no-underline hover:underline italic text-sm">
                 {/* This change is to show the revalidation of the pages using ISR */}
                 {date}
               </p>
