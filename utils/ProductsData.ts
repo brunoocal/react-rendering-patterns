@@ -10,7 +10,7 @@ export const MenProducts: ClothingProduct[] = [
     name: "Men's Essential Tee",
     images: ['/products/Men-0-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'M', 'XL'],
     colors: [
       {name: 'Black', hex: '#000'},
@@ -33,7 +33,7 @@ export const MenProducts: ClothingProduct[] = [
     name: "Men's Essential Tee",
     images: ['/products/Men-1-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -60,7 +60,7 @@ export const MenProducts: ClothingProduct[] = [
     name: "Men's Essential Tee",
     images: ['/products/Men-2-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [{name: 'Willow', hex: '#908651'}],
     desc: 'undefined2',
@@ -70,7 +70,7 @@ export const MenProducts: ClothingProduct[] = [
     name: 'Voyage',
     images: ['/products/Men-3-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [{name: 'Indigo', hex: '#324d68'}],
     desc: 'undefined2',
@@ -80,7 +80,7 @@ export const MenProducts: ClothingProduct[] = [
     name: "Men's Essential Tee",
     images: ['/products/Men-4-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -95,7 +95,7 @@ export const MenProducts: ClothingProduct[] = [
     name: 'More Than Meets the Eye',
     images: ['/products/Men-5-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -110,7 +110,7 @@ export const MenProducts: ClothingProduct[] = [
     name: "Men's Essential Tee",
     images: ['/products/Men-6-0.png'],
     category: Categories.NewArrivals,
-    for: 'Men',
+    gender: 'Men',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [{name: 'Charcoal', hex: '#514f56'}],
     desc: 'undefined2',
@@ -127,7 +127,7 @@ export const WomenProducts: ClothingProduct[] = [
       '/products/Women-1-0.png',
     ],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -162,7 +162,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-1-1.png', '/products/Women-1-0.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -177,7 +177,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-2-0.png', '/products/Women-2-1.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -192,7 +192,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-3-1.png', '/products/Women-3-0.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -207,7 +207,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-4-0.png', '/products/Women-4-1.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -222,7 +222,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-5-1.png', '/products/Women-5-0.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -237,7 +237,7 @@ export const WomenProducts: ClothingProduct[] = [
     name: "Women's Essential Tee",
     images: ['/products/Women-6-0.png', '/products/Women-6-1.png'],
     category: Categories.NewArrivals,
-    for: 'Women',
+    gender: 'Women',
     sizes: ['XS', 'S', 'M', 'XL'],
     colors: [
       {
@@ -255,7 +255,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     name: 'The Analog Complete Kit',
     images: ['/products/Work-0-0.png'],
     category: Categories.Workspace,
-    colors: [{hex: 'undefinedhex', name: 'undefined'}],
+    colors: [{hex: '#000', name: 'Black'}],
     desc:
       'The ultimate Analog kit.\nThis bundle includes:\n- Analog Starter Kit\n- Pen Tray (Walnut)\n- HMM Ballpoint Pen\n- Analog Travel Case (Charcoal)\n\nMeet Analog: The Simplest Productivity System. Analog is a physical companion for your digital tools that helps you prioritize and focus on your most important tasks.\n\nEach Analog Card Pack include 50 cards - enough cards to get you through an entire month (with a few extras in case you need to start over). The wood card holder keeps your Today card in front of you while the open-back design to store your completed cards. The felt case holds up to 50 cards and your favorite pen so your tasks can move with you wherever you go.\n',
     material: ['Leather', 'Wool', 'Wood', 'Plastic'],
@@ -265,7 +265,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     name: 'The Analog Bundle',
     images: ['/products/Work-1-0.png'],
     category: Categories.Workspace,
-    colors: [{hex: 'undefinedhex', name: 'undefined'}],
+    colors: [{hex: '#000', name: 'Black'}],
     desc:
       'The Analog Bundle kit.\nThis bundle includes:\n- Analog Starter Kit\n- Pen Tray (Walnut)\n\nMeet Analog: The Simplest Productivity System. Analog is a physical companion for your digital tools that helps you prioritize and focus on your most important tasks.\n\nEach Analog Card Pack include 50 cards - enough cards to get you through an entire month (with a few extras in case you need to start over). The wood card holder keeps your Today card in front of you while the open-back design to store your completed cards. The felt case holds up to 50 cards and your favorite pen so your tasks can move with you wherever you go.\n',
     material: ['Leather', 'Wool', 'Wood'],
@@ -288,7 +288,7 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
     name: 'Craft Design Technology Multifunctional Pen',
     images: ['/products/Work-3-0.png', '/products/Work-3-1.png'],
     category: Categories.Workspace,
-    colors: [{hex: 'undefinedhex', name: 'undefined'}],
+    colors: [{hex: '#000', name: 'Black'}],
     desc: 'undefined2',
     material: 'Plastic',
     price: '64.00',
@@ -465,37 +465,41 @@ export const WorkspaceProducts: WorkspaceProduct[] = [
   },
 ];
 
-export const Accesories: Product[] = [
+export const Accesories: WorkspaceProduct[] = [
   {
     name: 'Kinto Travel Tumbler',
     images: ['/products/Item-0-0.png'],
-    category: Categories.Workspace,
+    category: Categories.Accesories,
     colors: [{name: 'Black', hex: '#000'}],
     desc: 'undefined2',
     price: '35.00',
+    material: 'Metal',
   },
   {
     name: 'Kinto Day Off Tumbler',
     images: ['/products/Item-1-0.png', '/products/Item-1-1.png'],
-    category: Categories.Workspace,
+    category: Categories.Accesories,
     colors: [{name: 'Khaki', hex: '#5e5f49'}],
     desc: 'undefined2',
+    material: 'Metal',
     price: '38.00',
   },
   {
     name: 'Hasami Porcelain Mug',
     images: ['/products/Item-2-0.png', '/products/Item-2-1.png'],
-    category: Categories.Workspace,
+    category: Categories.Accesories,
     colors: [{name: 'Matte Black', hex: '#353132'}],
     desc: 'undefined2',
+    material: 'Ceramic',
     price: '30.00',
   },
   {
     name: 'Hasami Porcelain Mug',
     images: ['/products/Item-3-0.png', '/products/Item-3-1.png'],
-    category: Categories.Workspace,
+    category: Categories.Accesories,
     colors: [{name: 'Natural', hex: '#b8a086'}],
     desc: 'undefined2',
+    material: 'Ceramic',
     price: '30.00',
   },
 ];

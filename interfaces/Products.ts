@@ -1,3 +1,5 @@
+import {WorkspaceProducts} from '@utils/ProductsData';
+
 export enum Categories {
   'NewArrivals' = 'New Arrivals',
   'Accesories' = 'Accesories',
@@ -38,7 +40,7 @@ export type Materials =
 
 export interface ClothingProduct extends Product {
   sizes: Sizes[];
-  for: 'Women' | 'Men';
+  gender: 'Women' | 'Men';
   kit?: {
     is: boolean;
     description: string;
@@ -61,7 +63,7 @@ export interface ProductAPIQuery {
 
 export interface ClothingAPIQuery extends ProductAPIQuery {
   sizes?: Sizes[] | Sizes;
-  for?: 'Women' | 'Men';
+  gender?: 'Women' | 'Men';
 }
 
 export interface WorkspaceAPIQuery extends ProductAPIQuery {
@@ -112,4 +114,73 @@ export const decodeProduct = (text: string | null): string => {
   }
 
   return text;
+};
+
+export const groupColors = (products: Product[]) => {
+  const colors: Color[] = [];
+
+  products.forEach(product => {
+    if (product.colors) {
+      product.colors.forEach(color => {
+        if (!colors.find(c => c.hex === color.hex)) {
+          colors.push(color);
+        }
+      });
+    }
+  });
+};
+
+type GroupFilter = {
+  colors: Color[];
+  material: Materials[];
+  sizes: Sizes[];
+  gender: [];
+};
+
+export const group = (
+  products: Product[] | WorkspaceProduct[] | ClothingProduct[]
+) => {
+  const filtersGroup: GroupFilter = {
+    colors: [],
+    material: [],
+    sizes: [],
+    gender: [],
+  };
+
+  const properties = Object.keys(filtersGroup);
+
+  products.forEach(product => {
+    properties.forEach(key => {
+      if (product[key]) {
+        const filter = filtersGroup[key];
+
+        if (Array.isArray(product[key])) {
+          product[key].forEach((item: Materials | Color) => {
+            if (typeof item == 'object') {
+              console.log(filter.find((c: Color) => c.hex === item.hex));
+              if (!filter.find((c: Color) => c.hex === item.hex)) {
+                console.log('HOLA');
+                filter.push(item as Color);
+                return;
+              }
+              return;
+            }
+
+            if (!filter.includes(item)) {
+              //Materials | Sizes | Gender
+              filter.push(item);
+              return;
+            }
+          });
+        } else {
+          if (!filter.includes(product[key])) {
+            filter.push(product[key] as Materials);
+          }
+        }
+      }
+      return;
+    });
+  });
+
+  return filtersGroup;
 };
