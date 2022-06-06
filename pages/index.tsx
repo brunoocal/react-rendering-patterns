@@ -17,7 +17,7 @@ const IndexPage = ({header}) => (
         desc="We're commited to responsible, sustainable, ethical and ecological manufacturing. Our small scale approach allows us to focus on quality rather than quantity and improve your product. We're doing our best every day to delay the inevitable death of the universe."
         button={{
           text: 'Shop Collection',
-          link: '/',
+          link: '/category/New Arrivals',
         }}
         bgColor="bg-emerald-900"
         bgOpacity="opacity-50"
