@@ -26,11 +26,10 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
 
   switch (method) {
     case 'GET': {
-      //Categories
+      //Categories (I'm concern that this is not the best way to do this and I'll do it better later)
       switch (json.category) {
         case Categories.NewArrivals:
           const clothQuery: ClothingAPIQuery = json;
-          //for later SSR
           const AllProducts = [
             ...Products.MenProducts,
             ...Products.WomenProducts,
@@ -54,7 +53,6 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
             products: AllProducts,
           });
 
-          break;
         case Categories.Workspace:
           const workspaceQuery: WorkspaceAPIQuery = json;
 
@@ -75,7 +73,24 @@ const handler = (_req: NextApiRequest, res: NextApiResponse) => {
             products: Products.WorkspaceProducts,
           });
 
-          break;
+        case Categories.Accesories:
+          const accesoriesQuery: ProductAPIQuery = json;
+
+          if (accesoriesQuery.name) {
+            const findedProduct = Products.Accesories.find(
+              product =>
+                ProductPageURL(product) ===
+                `/category/${accesoriesQuery.category}/product/${accesoriesQuery.name}`
+            );
+            return res
+              .status(200)
+              .json({status: 'success', product: findedProduct});
+          }
+
+          return res.status(200).json({
+            status: 'success',
+            products: Products.Accesories,
+          });
       }
     }
   }

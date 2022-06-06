@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import {useRouter} from 'next/router';
 import {Breadcrumb} from '@components/Breadcrumb';
-import {Product, ProductPageURL, Categories} from '@interfaces/Products';
+import {group, Product, ProductPageURL, Categories} from '@interfaces/Products';
 import Image from 'next/image';
 import Link from 'next/link';
 import {Currencies, price} from '@interfaces/Currency';
@@ -71,6 +71,7 @@ export const getStaticProps: GetStaticProps = async context => {
   return {
     props: {
       products,
+      filters: group(products),
     },
   };
 };
@@ -78,6 +79,7 @@ export const getStaticProps: GetStaticProps = async context => {
 export default function CategoryPage({
   header,
   products,
+  filters,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter();
   const {name} = router.query;
@@ -109,73 +111,17 @@ export default function CategoryPage({
               ref={filtersRef}
               className="sticky top-0 w-full h-auto flex justify-center items-center flex-col py-4 px-8"
             >
-              <div className="w-full h-auto flex justify-center items-start flex-col border-b-2">
-                <h3 className="text-lg font-medium text-black mb-8">Color</h3>
-                <ul className="w-full h-auto flex justify-center items-start flex-col mb-12">
-                  {colors.map(({name, hex}) => {
-                    return (
-                      <li className="w-full h-10" key={name}>
-                        <button
-                          type="button"
-                          className="w-full h-full flex justify-start items-center"
-                        >
-                          <span
-                            key={name}
-                            style={{
-                              background: hex,
-                            }}
-                            className={`inline-block bg-white rounded-full h-5 w-5 mr-3`}
-                          />
-                          <p className="text-base font-normal text-gray-500 hover:text-gray-800">
-                            {capitalize(name)}
-                          </p>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              <div className="w-full h-auto flex justify-center items-start flex-col border-b-2 mt-6">
-                <h3 className="text-lg font-medium text-black mb-8">Gender</h3>
-                <ul className="w-full h-auto flex justify-center items-start flex-col mb-12">
-                  {['Men', 'Women'].map(gender => {
-                    return (
-                      <li className="w-full h-10" key={gender}>
-                        <button
-                          type="button"
-                          className="w-full h-full flex justify-start items-center"
-                        >
-                          <span className="mr-3 flex justify-center items-center h-4 w-4 border rounded" />
-                          <p className="text-base font-normal text-gray-500 hover:text-gray-800">
-                            {gender}
-                          </p>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-              <div className="w-full h-auto flex justify-center items-start flex-col border-b-2 mt-6">
-                <h3 className="text-lg font-medium text-black mb-8">Sizes</h3>
-                <ul className="w-full h-auto flex justify-center items-start flex-col mb-12">
-                  {sizes.map(size => {
-                    return (
-                      <li className="w-full h-10" key={size}>
-                        <button
-                          type="button"
-                          className="w-full h-full flex justify-start items-center"
-                        >
-                          <span className="mr-3 flex justify-center items-center h-4 w-4 border rounded" />
-
-                          <p className="text-base font-normal text-gray-500 hover:text-gray-800">
-                            {size}
-                          </p>
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+              {Object.entries(filters)
+                //@ts-ignore - typescript doesn't notice that filters is an array
+                .filter(([key, value]) => value?.length >= 2)
+                .map(([key, value], index) => (
+                  <Filter
+                    title={key}
+                    options={value}
+                    isColors={key === 'colors'}
+                    first={index === 0}
+                  />
+                ))}
             </section>
           </section>
           <section className="w-full h-full flex flex-wrap justify-start items-center">
@@ -219,3 +165,48 @@ export default function CategoryPage({
     </>
   );
 }
+
+const Filter = ({title, options, isColors, first}) => {
+  return (
+    <div
+      className={`w-full h-auto flex justify-center items-start flex-col border-b-2 ${!first &&
+        'mt-6'}`}
+    >
+      <h3 className="text-lg font-medium text-black mb-8">
+        {capitalize(title)}
+      </h3>
+      <ul className="w-full h-auto flex justify-center items-start flex-col mb-12">
+        {options.map((option, index) => {
+          const colorsStyle = isColors
+            ? ({
+                background: option.hex,
+                '--tw-ring-color': option.hex,
+              } as React.CSSProperties)
+            : {};
+
+          return (
+            <li className="w-full h-10" key={isColors ? index : option}>
+              <button
+                type="button"
+                className="w-full h-full flex justify-start items-center"
+              >
+                {isColors ? (
+                  <span
+                    key={option.name}
+                    style={colorsStyle}
+                    className={`inline-block ring-2 ring-offset-2 bg-white rounded-full h-5 w-5 mr-3`}
+                  />
+                ) : (
+                  <span className="mr-3 flex justify-center items-center h-4 w-4 border rounded" />
+                )}
+                <p className="text-base font-normal text-gray-500 hover:text-gray-800">
+                  {isColors ? capitalize(option.name) : option}
+                </p>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
