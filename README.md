@@ -36,7 +36,7 @@
   
 </a>
   
-<a href='https://react-rendering-patterns-mcfwtr71l-brunoocal.vercel.app/'>
+<a href='https://react-rendering-patterns-git-isr-brunoocal.vercel.app/'>
   
 <img src='https://img.shields.io/badge/ISR-blue?style=for-the-badge'>
   
