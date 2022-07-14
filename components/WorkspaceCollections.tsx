@@ -7,16 +7,19 @@ const List = [
     name: 'Work from home accesories',
     category: 'Desk and office',
     src: '/home.png',
+    link: '/category/Workspace',
   },
   {
     name: 'Journals and self-improving',
     category: 'Self-Improvement',
     src: '/journals.png',
+    link: '/category/Workspace',
   },
   {
     name: 'Daily commute essentials',
     category: 'Travel',
     src: '/travel.png',
+    link: '/category/Accesories',
   },
 ];
 
@@ -30,8 +33,8 @@ export const WorkspaceCollections = () => {
           </h2>
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 grid-rows-1 w-full">
-          {List.map(({src, category, name}, i) => (
-            <Link href="/">
+          {List.map(({src, category, name, link}, i) => (
+            <Link href={link} passHref>
               <a
                 className={`${i == 2 &&
                   'hidden sm:flex'} flex mt-6 flex-col justify-center items-center w-full h-full relative z-10`}

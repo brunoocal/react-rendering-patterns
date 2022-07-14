@@ -36,9 +36,11 @@ export const Categories = () => {
           <h2 className="text-xl md:text-3xl text-black font-bold">
             Shop by Category
           </h2>
-          <span className="text-indigo-600 text-sm font-semibold flex justify-center items-center pr-2">
-            Browse all categories <ArrowRightIcon className="ml-2 h-5 w-5" />
-          </span>
+          <Link passHref href="/category">
+            <span className="cursor-pointer text-indigo-600 text-sm font-semibold flex justify-center items-center pr-2">
+              Browse all categories <ArrowRightIcon className="ml-2 h-5 w-5" />
+            </span>
+          </Link>
         </div>
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 grid-rows-2 w-full">
           {List.map(({landing, name, big}, i) => {

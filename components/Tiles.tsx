@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
 import {TilesProps} from '@interfaces/index';
+import Link from 'next/link';
 
 export const Tiles = ({
   src = '/tiles.png',
@@ -8,7 +9,7 @@ export const Tiles = ({
   desc = "Make your desk beautiful and organized. Post a photo to social media and watch it get more likes than life-changing announcements. Endless tasks and limited hours in a bad workspace isn't a problem anymore.",
   button = {
     text: 'Shop Collection',
-    link: '/',
+    link: '/category/Workspace',
   },
   bgColor = 'bg-zinc-900',
   bgOpacity = 'opacity-80',
@@ -26,12 +27,14 @@ export const Tiles = ({
           <p className="text-base sm:px-40 sm:text-lg text-white/80 px-20 lg:px-80 text-center mb-8">
             {desc}
           </p>
-          <button
-            type="button"
-            className="inline-block text-center bg-white border border-transparent rounded-md py-3 px-8 font-medium text-black"
-          >
-            {button.text}
-          </button>
+          <Link href={button.link} passHref>
+            <button
+              type="button"
+              className="cursor-pointer inline-block text-center bg-white border border-transparent rounded-md py-3 px-8 font-medium text-black"
+            >
+              {button.text}
+            </button>
+          </Link>
         </div>
       </div>
       <div className={`absolute w-full h-full z-10 ${bgColor} ${bgOpacity}`} />
